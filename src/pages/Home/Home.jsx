@@ -22,7 +22,8 @@ export const Home = () => {
         noteDispatch({ type: 'CLEAR' })
     }
     const pinnedNotes = notes?.length > 0 && notes.filter(({ isPinned }) => isPinned);
-    const otherNotes = notes?.length > 0 && notes.filter(({ isPinned }) => !isPinned);
+    const otherNotes = notes?.length > 0 && notes.filter(({ isPinned, isArchived }) => !isPinned && !isArchived);
+    console.log(notes);
     return (
         <Fragment>
             <NavBar />

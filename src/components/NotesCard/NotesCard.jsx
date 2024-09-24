@@ -2,10 +2,13 @@ import React from 'react'
 import { useNotes } from '../../context/notes-context'
 // {`material-symbols-outlined ${isPinned ? 'text-zinc-950' : ''}`}
 
-export const NotesCard = ({ id, title, text, isPinned }) => {
+export const NotesCard = ({ id, title, text, isPinned, isArchived }) => {
     const { noteDispatch } = useNotes();
     const onPinClick = (id) => {
         noteDispatch({ type: 'PIN', payload: { id } })
+    }
+    const onArchiveClick = (id) => {
+        noteDispatch({ type: 'ARCHIVE', payload: { id } })
     }
     return (
         <div key={id} className='w-80 h-80 border border-neutral-400 rounded-md p-2 '>
@@ -21,9 +24,10 @@ export const NotesCard = ({ id, title, text, isPinned }) => {
                 <div className='break-words'>{text}</div>
                 <div className='ml-auto flex gap-2 absolute bottom-0 right-0'>
                     <button >
-                        <span className="material-symbols-outlined" >
+                        <span className={`material-symbols-outlined ${isArchived ? 'bg-sky-500' : ''}`} onClick={() => onArchiveClick(id)}>
                             archive
-                        </span></button>
+                        </span>
+                    </button>
                     <button>
                         <span className="material-symbols-outlined" >
                             delete

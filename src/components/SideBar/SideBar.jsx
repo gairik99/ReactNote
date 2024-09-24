@@ -17,13 +17,13 @@ export const SideBar = () => {
                 </span>
                 <span>Archive</span>
             </NavLink>
-            <NavLink className={getStyle} to='#'>
+            <NavLink className={getStyle} to='/important'>
                 <span className="material-symbols-outlined">
                     label_important
                 </span>
                 <span>Important</span>
             </NavLink>
-            <NavLink className={getStyle} to='#'>
+            <NavLink className={getStyle} to='/bin'>
                 <span className="material-symbols-outlined">
                     delete
                 </span>
