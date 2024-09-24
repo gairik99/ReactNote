@@ -1,13 +1,20 @@
-import { useState } from 'react'
-import './App.css'
+import React, { Fragment } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import { Home } from './pages/Home/Home';
+import { Archive } from './pages/Archive/Archive';
 
 function App() {
-
   return (
-    <>
-      <p>how are you</p>
-    </>
-  )
+    <Fragment>
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/archive' element={<Archive />} />
+      </Routes>
+
+    </Fragment>
+  );
 }
 
-export default App
+export default App;
