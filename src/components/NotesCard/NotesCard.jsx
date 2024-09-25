@@ -26,7 +26,7 @@ export const NotesCard = ({ id, title, text, isPinned, isArchived, isImportant, 
 
 
     return (
-        <div key={id} className='w-70 h-80 border border-neutral-400 rounded-md p-2 '>
+        <div key={id} className='w-56 h-80 border border-neutral-400 rounded-md p-2 '>
             <div className='flex justify-between h-10'>
                 <p className='break-words w-56'>{title}</p>
                 <button onClick={() => onPinClick(id)}>
