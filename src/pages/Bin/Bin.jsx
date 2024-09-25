@@ -10,11 +10,10 @@ export const Bin = () => {
         if (element.isBin === true) {
             element.isArchived = true;
             element.isPinned = false;
-            element.isImportant = false;
         }
 
     })
-    const binNotes = notes?.length > 0 && notes.filter(({ isBin }) => isBin);
+    const binNotes = notes?.length > 0 && notes.filter(({ isBin, isImportant }) => isBin && !isImportant);
 
     return (
         <Fragment>
