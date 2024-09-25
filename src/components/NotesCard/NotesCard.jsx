@@ -26,8 +26,8 @@ export const NotesCard = ({ id, title, text, isPinned, isArchived, isImportant, 
 
 
     return (
-        <div key={id} className='w-80 h-80 border border-neutral-400 rounded-md p-2 '>
-            <div className='flex justify-between h-10'>
+        <div key={id} className='w-[25vw] h-[50vh] border border-neutral-400 rounded-md p-2 '>
+            <div className='flex justify-between h-[10%]'>
                 <p className='break-words w-72'>{title}</p>
                 <button onClick={() => onPinClick(id)}>
                     <span className={`material-symbols-outlined ${isPinned ? 'text-sky-400' : ''}`}>
@@ -35,7 +35,7 @@ export const NotesCard = ({ id, title, text, isPinned, isArchived, isImportant, 
                     </span>
                 </button>
             </div>
-            <div className='flex flex-col h-60 relative mt-6'>
+            <div className='flex flex-col h-[80%] relative mt-6'>
                 <div className='break-words'>{text}</div>
                 <div className='ml-auto flex gap-2 absolute bottom-0 right-0'>
                     <button onClick={() => onArchiveClick(id)}>
