@@ -4,9 +4,17 @@ import { SideBar } from '../../components/SideBar/SideBar'
 import { useNotes } from '../../context/notes-context'
 import { NotesCard } from '../../components/NotesCard/NotesCard'
 
-export const Archive = () => {
+export const Important = () => {
     const { title, text, notes, noteDispatch } = useNotes();
-    const archivedNotes = notes?.length > 0 && notes.filter(({ isArchived, isPinned }) => isArchived && !isPinned);
+    notes.forEach((element) => {
+        if (element.isImportant === true) {
+            element.isArchived = false;
+            element.isPinned = false;
+        }
+
+    })
+    const importantNotes = notes?.length > 0 && notes.filter(({ isImportant }) => isImportant);
+
     return (
         <Fragment>
             <NavBar />
@@ -14,14 +22,14 @@ export const Archive = () => {
                 <SideBar />
                 <div className="mt-14 ml-10 flex flex-col gap-5 overflow-auto mb-8">
                     {
-                        archivedNotes?.length > 0 && (
+                        importantNotes?.length > 0 && (
                             <div>
-                                <h3 className="">Archived Notes</h3>
+                                <h3 className="">Important Notes</h3>
                                 <div className="flex flex-wrap gap-6">
 
                                     {
-                                        archivedNotes?.length > 0 && archivedNotes.map(({ id, title, text, isArchived }) => (
-                                            <NotesCard key={id} id={id} title={title} text={text} isArchived={isArchived} />
+                                        importantNotes?.length > 0 && importantNotes.map(({ id, title, text, isImportant }) => (
+                                            <NotesCard key={id} id={id} title={title} text={text} isImportant={isImportant} />
                                         ))
                                     }
                                 </div>

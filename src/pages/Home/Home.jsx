@@ -21,9 +21,17 @@ export const Home = () => {
         })
         noteDispatch({ type: 'CLEAR' })
     }
+    notes.forEach((element) => {
+        if (element.isPinned === true) {
+            element.isArchived = false;
+        }
+
+    })
+
     const pinnedNotes = notes?.length > 0 && notes.filter(({ isPinned }) => isPinned);
-    const otherNotes = notes?.length > 0 && notes.filter(({ isPinned, isArchived }) => !isPinned && !isArchived);
-    console.log(notes);
+    const otherNotes = notes?.length > 0 && notes.filter(({ isPinned, isArchived, isImportant }) => !isPinned && !isArchived && !isImportant);
+    // console.log(notes);
+
     return (
         <Fragment>
             <NavBar />
@@ -39,7 +47,7 @@ export const Home = () => {
                             </span>
                         </button>
                     </div>
-                    <div className="mt-14 ml-10 flex flex-col gap-5">
+                    <div className="mt-14 ml-10 flex flex-col gap-5 overflow-auto mb-8">
                         {
                             pinnedNotes?.length > 0 && (
                                 <div>

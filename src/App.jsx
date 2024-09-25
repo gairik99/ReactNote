@@ -5,6 +5,7 @@ import { Home } from './pages/Home/Home';
 import { Archive } from './pages/Archive/Archive';
 import { NavBar } from './components/NavBar/NavBar';
 import { SideBar } from './components/SideBar/SideBar';
+import { Important } from './pages/Important/Important';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/archive' element={<Archive />} />
+        <Route path='/important' element={<Important />} />
       </Routes>
 
 
