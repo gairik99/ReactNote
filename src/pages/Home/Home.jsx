@@ -38,7 +38,7 @@ export const Home = () => {
             <main className='flex gap-3'>
                 <SideBar />
                 <div className="flex flex-col w-screen mt-7">
-                    <div className='flex flex-col gap w-[40vw] self-center relative '>
+                    <div className='flex flex-col gap w-96 self-center relative '>
                         <input type="text" placeholder='Enter Title..' value={title} onChange={onTitleChange} className='border border-neutral-400 rounded-sm focus:outline-none border-b-0 p-2' />
                         <textarea name="" id="" placeholder='Enter Your Note..' value={text} onChange={onTextChange} className='border border-neutral-400 rounded-sm focus:outline-none border-t-0 p-2'></textarea>
                         <button className='absolute bottom-0 right-0 ' disabled={title.length === 0 && text.length === 0} onClick={onAddClick}>

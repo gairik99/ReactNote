@@ -10,9 +10,9 @@ export const Archive = () => {
     return (
         <Fragment>
             <NavBar />
-            <main className='flex gap-3 w-screen'>
+            <main className='flex gap-3'>
                 <SideBar />
-                <div className="mt-14 ml-10 flex flex-col gap-5 overflow-auto mb-8 ">
+                <div className="mt-14 ml-10 flex flex-col gap-5 overflow-auto mb-8">
                     {
                         archivedNotes?.length > 0 && (
                             <div>
