@@ -8,7 +8,7 @@ export const notesReducer = (state, { type, payload }) => {
             return { ...state, text: payload }
         case 'ADD_NOTE':
             return {
-                ...state, notes: [...state.notes, { id: uuid(), title: state.title, text: state.text, isPinned: false, isArchived: false, isImportant: false }]
+                ...state, notes: [...state.notes, { id: uuid(), title: state.title, text: state.text, isPinned: false, isArchived: false, isImportant: false, isBin: false }]
             }
         case 'CLEAR':
             return {
@@ -34,6 +34,20 @@ export const notesReducer = (state, { type, payload }) => {
                 notes: state.notes.map(note => note.id === payload.id ? {
                     ...note, isImportant: !note.isImportant
                 } : note)
+            }
+        case 'ADD_BIN':
+            return {
+                ...state,
+                notes: state.notes.map(note => note.id === payload.id ? {
+                    ...note, isBin: true
+                } : note)
+            }
+
+        case 'DELETE_BIN':
+            return {
+                ...state,
+                notes: state.notes.filter((note) => note.id !== payload.id)
+
             }
 
         default:

@@ -6,6 +6,7 @@ import { Archive } from './pages/Archive/Archive';
 import { NavBar } from './components/NavBar/NavBar';
 import { SideBar } from './components/SideBar/SideBar';
 import { Important } from './pages/Important/Important';
+import { Bin } from './pages/Bin/Bin';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/archive' element={<Archive />} />
         <Route path='/important' element={<Important />} />
+        <Route path='/bin' element={<Bin />} />
       </Routes>
 
 

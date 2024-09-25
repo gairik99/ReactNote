@@ -29,7 +29,7 @@ export const Home = () => {
     })
 
     const pinnedNotes = notes?.length > 0 && notes.filter(({ isPinned }) => isPinned);
-    const otherNotes = notes?.length > 0 && notes.filter(({ isPinned, isArchived, isImportant }) => !isPinned && !isArchived && !isImportant);
+    const otherNotes = notes?.length > 0 && notes.filter(({ isPinned, isArchived, isImportant, isBin }) => !isPinned && !isArchived && !isImportant && !isBin);
     // console.log(notes);
 
     return (

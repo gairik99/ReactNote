@@ -2,8 +2,8 @@ import React from 'react'
 import { useNotes } from '../../context/notes-context'
 // {`material-symbols-outlined ${isPinned ? 'text-zinc-950' : ''}`}
 
-export const NotesCard = ({ id, title, text, isPinned, isArchived, isImportant }) => {
-    const { noteDispatch } = useNotes();
+export const NotesCard = ({ id, title, text, isPinned, isArchived, isImportant, isBin }) => {
+    const { noteDispatch, notes } = useNotes();
     const onPinClick = (id) => {
         noteDispatch({ type: 'PIN', payload: { id } })
     }
@@ -12,6 +12,16 @@ export const NotesCard = ({ id, title, text, isPinned, isArchived, isImportant }
     }
     const onImportantClick = (id) => {
         noteDispatch({ type: 'IMPORTANT', payload: { id } })
+    }
+
+
+    const onBinClick = (id) => {
+        const found = notes.find(note => note.id === id)
+        if (found.isBin === false)
+            noteDispatch({ type: 'ADD_BIN', payload: { id } })
+        else {
+            noteDispatch({ type: 'DELETE_BIN', payload: { id } })
+        }
     }
 
 
@@ -28,13 +38,13 @@ export const NotesCard = ({ id, title, text, isPinned, isArchived, isImportant }
             <div className='flex flex-col h-60 relative mt-6'>
                 <div className='break-words'>{text}</div>
                 <div className='ml-auto flex gap-2 absolute bottom-0 right-0'>
-                    <button >
-                        <span className={`material-symbols-outlined ${isArchived ? 'text-sky-400' : ''}`} onClick={() => onArchiveClick(id)}>
+                    <button onClick={() => onArchiveClick(id)}>
+                        <span className={`material-symbols-outlined ${isArchived ? 'text-sky-400' : ''}`} >
                             archive
                         </span>
                     </button>
-                    <button>
-                        <span className="material-symbols-outlined" >
+                    <button onClick={() => onBinClick(id)}>
+                        <span className={`material-symbols-outlined ${isBin ? 'text-sky-400' : ''}`} >
                             delete
                         </span>
                     </button>
