@@ -24,8 +24,8 @@ export const NavBar = () => {
 
     return (
         <>
-            <header className='flex p-3 gap-4 border-b-2 border-gray-200 items-center h-[10vh]'>
-                <div className='w-16 h-16'>
+            <header className='flex p-3 gap-4 border-b-2 border-gray-200 items-center'>
+                <div className='h-16 w-16'>
                     <img src={logo} alt="logo" className='w-full h-full' />
                 </div>
 
